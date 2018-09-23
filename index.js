@@ -1,16 +1,16 @@
 const express = require("express");
 const app = express();
 
-app.use((req, res, next) => {
+const userMiddleware = (req, res, next) => {
   console.log("Acessou!");
   next();
-});
+};
 
 app.get("/teste", (req, res) => {
   res.send("Hello Rocketseat");
 });
 
-app.get("/user", (req, res) => {
+app.get("/user", userMiddleware, (req, res) => {
   res.send("Usuário: Giamma");
 });
 
