@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 
-app.get("/teste", (req, res, next) => {
-  res.send("Hello Rocketseat");
+app.use((req, res, next) => {
+  console.log("Acessou!");
   next();
 });
 
 app.get("/teste", (req, res) => {
-  console.log("Funcionou!");
+  res.send("Hello Rocketseat");
 });
 
 app.listen(3000);
