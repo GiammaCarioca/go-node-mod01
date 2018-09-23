@@ -1,21 +1,22 @@
 const express = require("express");
+const nunjucks = require("nunjucks");
+const path = require("path");
+
 const app = express();
 
-app.get("/teste", (req, res) => {
-  res.send("Hello Rocketseat");
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app
 });
 
-app.use("/user", (req, res, next) => {
-  console.log("Acessou!");
-  next();
-});
+// configurando extensão dos arquivos
+app.set("view engine", "njk");
 
-app.get("/user", (req, res) => {
-  res.send("Usuário: Giamma");
-});
+// configurando o caminho das views
+app.set("views", path.join(__dirname, "views"));
 
-app.get("/user/name", (req, res) => {
-  res.send("Usuário: Thiago Giammattey");
+app.get("/", (req, res) => {
+  res.render("index", { nome: "Thiago Giammattey" });
 });
 
 app.listen(3000);
