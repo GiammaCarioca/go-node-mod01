@@ -16,7 +16,9 @@ app.set("view engine", "njk");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-  res.render("index", { nome: "Thiago Giammattey" });
+  res.render("index", {
+    nomes: ["Thiago Giammattey", "Diego Fernandes", "Cleiton Souza"]
+  });
 });
 
 app.listen(3000);

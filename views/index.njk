@@ -3,6 +3,8 @@
     <title>Aprendendo NodeJS com o GoNode</title>
   </head>
   <body>
-    Bem-vindo ao sistema, {{ nome }} 
+    {% for nome in nomes %}
+    Bem-vindo ao sistema, {{ nome }} <br>
+    {% endfor %}
   </body>
 </html>
