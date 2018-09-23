@@ -23,9 +23,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/auth", (req, res) => {
-  res.send(
-    `Você logou com usuário ${req.body.username} e senha ${req.body.password}`
-  );
+  const { username, password } = req.body;
+  res.send(`Você logou com usuário ${username} e senha ${password}`);
 });
 
 app.listen(3000);
